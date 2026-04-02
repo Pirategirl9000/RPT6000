@@ -70,14 +70,14 @@
       **************************************************************    00700000
       * SWITCH FOR END OF FILE                                     *    00710000
       **************************************************************    00720000
-       01  CONTROL-FIELDS.                                              00730000
+       01  CONTROL-FIELDS PACKED-DECIMAL.                                              00730000
            05  OLD-BRANCH-NUMBER       PIC 99.                          00740000
            05  OLD-SALESREP-NUMBER     PIC 99.                          00750000
                                                                         00760000
       **************************************************************    00770000
       * STORES INFORMATION RELEVANT TO THE PAGE                    *    00780000
       **************************************************************    00790000
-       01  PRINT-FIELDS.                                                00800000
+       01  PRINT-FIELDS PACKED-DECIMAL.                                                00800000
            05  PAGE-COUNT      PIC S9(3)   VALUE ZERO.                  00810000
            05  LINES-ON-PAGE   PIC S9(3)   VALUE +55.                   00820000
            05  LINE-COUNT      PIC S9(3)   VALUE +99.                   00830000
@@ -85,7 +85,7 @@
       **************************************************************    00850000
       * STORES TOTAL FIELDS FOR CALCULATING                        *    00860000
       **************************************************************    00870000
-       01  TOTAL-FIELDS.                                                00880000
+       01  TOTAL-FIELDS PACKED-DECIMAL.                                                00880000
            05  BRANCH-TOTAL-THIS-YTD    PIC S9(6)V99   VALUE ZERO.      00890000
            05  BRANCH-TOTAL-LAST-YTD    PIC S9(6)V99   VALUE ZERO.      00900000
            05  SALESREP-TOTAL-THIS-YTD  PIC S9(6)V99   VALUE ZERO.      00910000
@@ -427,12 +427,12 @@
            *> NUMBER WE MOVE 999.9 TO THE PERECENTAGE SINCE IT'S        04210000
            *> A DIVIDE BY ZERO ERROR OTHERWISE                          04220000
            IF CM-SALES-LAST-YTD = ZERO                                  04230000
-               MOVE 999.9 TO CL-CHANGE-PERCENT                          04240000
+               MOVE "  N/A " TO CL-CHANGE-PERCENT-R                     04240000
            ELSE                                                         04250000
                COMPUTE CL-CHANGE-PERCENT ROUNDED =                      04260000
                    CHANGE-AMOUNT * 100 / CM-SALES-LAST-YTD              04270000
                    ON SIZE ERROR                                        04280000
-                       MOVE 999.9 TO CL-CHANGE-PERCENT.                 04290000
+                       MOVE "OVRFLW" TO CL-CHANGE-PERCENT-R.            04290000
                                                                         04300000
            *> PRINT THIS CUSTOMERS INFORMATION TO THE OUTPUT FILE       04310000
            MOVE CUSTOMER-LINE TO PRINT-AREA.                            04320000
@@ -498,12 +498,12 @@
            *> CALCULATE THE CHANGE PERCENT BETWEEN YTD'S                04920000
            *> THEN MOVE TO THE BRANCH TOTAL LINE                        04930000
            IF BRANCH-TOTAL-LAST-YTD = ZERO                              04940000
-               MOVE 999.9 TO BTL-CHANGE-PERCENT                         04950000
+               MOVE "  N/A " TO BTL-CHANGE-PERCENT-R                    04950000
            ELSE                                                         04960000
                COMPUTE BTL-CHANGE-PERCENT ROUNDED =                     04970000
                    CHANGE-AMOUNT * 100 / BRANCH-TOTAL-LAST-YTD          04980000
                    ON SIZE ERROR                                        04990000
-                       MOVE 999.9 TO BTL-CHANGE-PERCENT.                05000000
+                       MOVE "OVRFLW" TO BTL-CHANGE-PERCENT-R.           05000000
                                                                         05010000
            *> PRINT BRANCH LINE                                         05020000
            MOVE BRANCH-TOTAL-LINE TO PRINT-AREA.                        05030000
@@ -540,12 +540,12 @@
            *> CALCULATE THE CHANGE PERCENT BETWEEN YTD'S                05340000
            *> THEN MOVE TO THE SALESREP TOTAL LINE                      05350000
            IF SALESREP-TOTAL-LAST-YTD = ZERO                            05360000
-               MOVE 999.9 TO STL-CHANGE-PERCENT                         05370000
+               MOVE "  N/A " TO STL-CHANGE-PERCENT-R                    05370000
            ELSE                                                         05380000
                COMPUTE STL-CHANGE-PERCENT ROUNDED =                     05390000
                    CHANGE-AMOUNT * 100 / SALESREP-TOTAL-LAST-YTD        05400000
                    ON SIZE ERROR                                        05410000
-                       MOVE 999.9 TO STL-CHANGE-PERCENT.                05420000
+                       MOVE "OVRFLW" TO STL-CHANGE-PERCENT-R.           05420000
                                                                         05430000
            *> PRINT SALESREP LINE                                       05440000
            MOVE SALESREP-TOTAL-LINE TO PRINT-AREA.                      05450000
@@ -587,12 +587,12 @@
            *> IF THERE WAS NO LAST YEAR FOR ANYONE DEFAULT TO           05810000
            *> A PERCENT OF 999.9 TO AVOID DIVIDE BY ZERO ERROR          05820000
            IF GRAND-TOTAL-LAST-YTD = ZERO                               05830000
-               MOVE 999.9 TO GTL-CHANGE-PERCENT                         05840000
+               MOVE "  N/A " TO GTL-CHANGE-PERCENT-R                    05840000
            ELSE                                                         05850000
                COMPUTE GTL-CHANGE-PERCENT ROUNDED =                     05860000
                    CHANGE-AMOUNT * 100 / GRAND-TOTAL-LAST-YTD           05870000
                    ON SIZE ERROR                                        05880000
-                       MOVE 999.9 TO GTL-CHANGE-PERCENT.                05890000
+                       MOVE "OVRFLW" TO GTL-CHANGE-PERCENT-R.           05890000
                                                                         05900000
            *> PRINT THE GRAND-TOTAL TO THE OUTPUT FILE                  05910000
            MOVE GRAND-TOTAL-LINE TO PRINT-AREA.                         05920000
