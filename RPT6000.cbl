@@ -56,7 +56,12 @@
       *     THE FOLLOWING RECORDS ARE USED FOR WORKING WITH DATA   *    00560000
       *              AND ARE NOT USED FOR PROGRAM OUTPUT           *    00570000
       *------------------------------------------------------------*    00580000
-                                                                        00590000
+       01 SALESREP-TABLE VALUE "WHATEVER12 11JSMITH   12TTHOMAS 14 BJ
+      -    "ONES   18GFRANKLIN 21RWILLIAMS ".      
+           05 SALESREP-GROUP OCCURS 6 TIMES
+                             INDEXED BY SRT-INDEX.
+               10 SALESREP-NUMBER   PIC 9(2).
+               10 SALESREP-MAME     PIC X(10).                          00590000
       **************************************************************    00600000
       * SWITCHES FOR END OF FILE AND FIRST RECORD                  *    00610000
       **************************************************************    00620000
@@ -70,14 +75,14 @@
       **************************************************************    00700000
       * SWITCH FOR END OF FILE                                     *    00710000
       **************************************************************    00720000
-       01  CONTROL-FIELDS PACKED-DECIMAL.                                              00730000
+       01  CONTROL-FIELDS PACKED-DECIMAL.                               00730000
            05  OLD-BRANCH-NUMBER       PIC 99.                          00740000
            05  OLD-SALESREP-NUMBER     PIC 99.                          00750000
                                                                         00760000
       **************************************************************    00770000
       * STORES INFORMATION RELEVANT TO THE PAGE                    *    00780000
       **************************************************************    00790000
-       01  PRINT-FIELDS PACKED-DECIMAL.                                                00800000
+       01  PRINT-FIELDS PACKED-DECIMAL.                                 00800000
            05  PAGE-COUNT      PIC S9(3)   VALUE ZERO.                  00810000
            05  LINES-ON-PAGE   PIC S9(3)   VALUE +55.                   00820000
            05  LINE-COUNT      PIC S9(3)   VALUE +99.                   00830000
@@ -85,7 +90,7 @@
       **************************************************************    00850000
       * STORES TOTAL FIELDS FOR CALCULATING                        *    00860000
       **************************************************************    00870000
-       01  TOTAL-FIELDS PACKED-DECIMAL.                                                00880000
+       01  TOTAL-FIELDS PACKED-DECIMAL.                                 00880000
            05  BRANCH-TOTAL-THIS-YTD    PIC S9(6)V99   VALUE ZERO.      00890000
            05  BRANCH-TOTAL-LAST-YTD    PIC S9(6)V99   VALUE ZERO.      00900000
            05  SALESREP-TOTAL-THIS-YTD  PIC S9(6)V99   VALUE ZERO.      00910000
@@ -214,7 +219,7 @@
            05  CL-CHANGE-AMOUNT    PIC ZZ,ZZ9.99-.                      02140000
            05  FILLER              PIC X(3)     VALUE SPACE.            02150000
            05  CL-CHANGE-PERCENT   PIC ---9.9.                          02160003
-           05  CL-CHANGE-PRECENT-R REDEFINES CL-CHANGE-PERCENT          02161003
+           05  CL-CHANGE-PERCENT-R REDEFINES CL-CHANGE-PERCENT          02161003
                                    PIC X(6).                            02162003
            05  FILLER              PIC X(47)    VALUE SPACE.            02170000
                                                                         02180000
