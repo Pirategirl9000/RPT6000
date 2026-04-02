@@ -273,6 +273,8 @@
            05  GTL-CHANGE-AMOUNT   PIC $,$$$,$$9.99-.                   02670006
            05  FILLER              PIC X(3)     VALUE SPACE.            02680000
            05  GTL-CHANGE-PERCENT  PIC ZZ9.9-.                          02690000
+           05  GTL-CHANGE-PERCENT-R REDEFINES GTL-CHANGE-PERCENT
+                                   PIC X(6). 
            05  FILLER              PIC X(43)    VALUE " ***".           02700000
                                                                         02710000
        PROCEDURE DIVISION.                                              02720000
