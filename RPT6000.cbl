@@ -231,7 +231,7 @@
            05  FILLER                PIC X(3)     VALUE SPACE.          02290004
            05  BTL-SALES-LAST-YTD    PIC $$$,$$9.99-.                   02300005
            05  FILLER                PIC X(3)     VALUE SPACE.          02310004
-           05  BTL-CHANGE-AMOUNT     PIC ZZZ,ZZ9.99-.                   02320004
+           05  BTL-CHANGE-AMOUNT     PIC $$$,$$9.99-.                   02320006
            05  FILLER                PIC X(3)     VALUE SPACE.          02330004
            05  BTL-CHANGE-PERCENT    PIC +++9.9.                        02340004
            05  BTL-CHANGE-PERCENT-R  REDEFINES BTL-CHANGE-PERCENT       02341004
@@ -251,7 +251,7 @@
            05  FILLER               PIC X(3)     VALUE SPACE.           02470005
            05  STL-SALES-LAST-YTD   PIC $$$,$$9.99-.                    02480005
            05  FILLER               PIC X(3)     VALUE SPACE.           02490005
-           05  STL-CHANGE-AMOUNT    PIC ZZZ,ZZ9.99-.                    02500005
+           05  STL-CHANGE-AMOUNT    PIC $$$,$$9.99-.                    02500006
            05  FILLER               PIC X(3)     VALUE SPACE.           02510005
            05  STL-CHANGE-PERCENT   PIC ZZ9.9-.                         02520005
            05  STL-CHANGE-PERCENT-R REDEFINES STL-CHANGE-PERCENT        02521005
@@ -266,11 +266,11 @@
        01  GRAND-TOTAL-LINE.                                            02600000
            05  FILLER              PIC X(28)    VALUE SPACE.            02610000
            05  FILLER              PIC X(12)    VALUE "GRAND TOTAL ".   02620000
-           05  GTL-SALES-THIS-YTD  PIC Z,ZZZ,ZZ9.99-.                   02630000
+           05  GTL-SALES-THIS-YTD  PIC $,$$$,$$9.99-.                   02630006
            05  FILLER              PIC X(1)     VALUE SPACE.            02640000
-           05  GTL-SALES-LAST-YTD  PIC Z,ZZZ,ZZ9.99-.                   02650000
+           05  GTL-SALES-LAST-YTD  PIC $,$$$,$$9.99-.                   02650006
            05  FILLER              PIC X        VALUE SPACE.            02660000
-           05  GTL-CHANGE-AMOUNT   PIC Z,ZZZ,ZZ9.99-.                   02670000
+           05  GTL-CHANGE-AMOUNT   PIC $,$$$,$$9.99-.                   02670006
            05  FILLER              PIC X(3)     VALUE SPACE.            02680000
            05  GTL-CHANGE-PERCENT  PIC ZZ9.9-.                          02690000
            05  FILLER              PIC X(43)    VALUE " ***".           02700000
