@@ -2,6 +2,7 @@
 ![Image of Output](assets/RPT6000Output.png)
 ## Author
 * [Violet French](https://github.com/Pirategirl9000)
+* [ADD HAYDEN]
 
 ## Table of Contents
 * [Author](#author)
