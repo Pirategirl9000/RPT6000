@@ -213,7 +213,9 @@
            05  FILLER              PIC X(4)     VALUE SPACE.            02130000
            05  CL-CHANGE-AMOUNT    PIC ZZ,ZZ9.99-.                      02140000
            05  FILLER              PIC X(3)     VALUE SPACE.            02150000
-           05  CL-CHANGE-PERCENT   PIC ZZ9.9-.                          02160000
+           05  CL-CHANGE-PERCENT   PIC ---9.9.                          02160003
+           05  CL-CHANGE-PRECENT-R REDEFINES CL-CHANGE-PERCENT          02161003
+                                   PIC X(6).                            02162003
            05  FILLER              PIC X(47)    VALUE SPACE.            02170000
                                                                         02180000
       **************************************************************    02190000
