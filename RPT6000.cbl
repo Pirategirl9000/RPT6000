@@ -225,16 +225,18 @@
       * USED FOR OUTPUTTING                                        *    02230000
       **************************************************************    02240000
        01  BRANCH-TOTAL-LINE.                                           02250000
-           05  FILLER              PIC X(28)    VALUE SPACE.            02260000
-           05  FILLER              PIC X(14)    VALUE "BRANCH TOTAL".   02270000
-           05  BTL-SALES-THIS-YTD  PIC ZZZ,ZZ9.99-.                     02280000
-           05  FILLER              PIC X(3)     VALUE SPACE.            02290000
-           05  BTL-SALES-LAST-YTD  PIC ZZZ,ZZ9.99-.                     02300000
-           05  FILLER              PIC X(3)     VALUE SPACE.            02310000
-           05  BTL-CHANGE-AMOUNT   PIC ZZZ,ZZ9.99-.                     02320000
-           05  FILLER              PIC X(3)     VALUE SPACE.            02330000
-           05  BTL-CHANGE-PERCENT  PIC ZZ9.9-.                          02340000
-           05  FILLER              PIC X(48)    VALUE " **".            02350000
+           05  FILLER                PIC X(28)    VALUE SPACE.          02260004
+           05  FILLER                PIC X(14)    VALUE "BRANCH TOTAL". 02270004
+           05  BTL-SALES-THIS-YTD    PIC ZZZ,ZZ9.99-.                   02280004
+           05  FILLER                PIC X(3)     VALUE SPACE.          02290004
+           05  BTL-SALES-LAST-YTD    PIC ZZZ,ZZ9.99-.                   02300004
+           05  FILLER                PIC X(3)     VALUE SPACE.          02310004
+           05  BTL-CHANGE-AMOUNT     PIC ZZZ,ZZ9.99-.                   02320004
+           05  FILLER                PIC X(3)     VALUE SPACE.          02330004
+           05  BTL-CHANGE-PERCENT    PIC +++9.9.                        02340004
+           05  BTL-CHANGE-PERCENT-R  REDEFINES BTL-CHANGE-PERCENT       02341004
+                                     PIC X(6).                          02342004
+           05  FILLER                PIC X(48)    VALUE " **".          02350004
                                                                         02360000
       **************************************************************    02370000
       * STORES THE SALES REP TOTAL LINE                            *    02380000
