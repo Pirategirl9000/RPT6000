@@ -2,8 +2,8 @@
                                                                         00020000
        PROGRAM-ID. RPT6000.                                             00030001
                                                                         00040000
-      *   Programmers.: Violet French                                   00050000
-      *   Date........: 2026.03.18                                      00060000
+      *   Programmers.: Violet French, Hayden Schmidt                   00050002
+      *   Date........: 2026.04.02                                      00060002
       *   Github URL..: https://github.com/Pirategirl9000/RPT6000       00070001
       *   Description.: This program produces a sales report based on   00080000
       *   values acquired from the CUSTMAST dataset and produces        00090000
