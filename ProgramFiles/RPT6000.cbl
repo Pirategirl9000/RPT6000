@@ -403,10 +403,7 @@
                    PERFORM 220-PRINT-CUSTOMER-LINE                      03850000
            END-EVALUATE.
 
-      **************************************************************    03880000
-      * READS A LINE OF THE INPUT FILE AND IF ITS THE LAST ONE     *    03890000
-      * UPDATES THE CUSTOMER-EOF-SWITCH (END-OF-FILE)              *    03900000
-      **************************************************************
+
        205-LOAD-SALESREP-TABLE.
            PERFORM WITH TEST AFTER
                 VARYING SRT-INDEX FROM 1 BY 1
