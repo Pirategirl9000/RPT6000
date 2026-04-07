@@ -214,27 +214,27 @@
       * DIFFERENCE IN PERCENT.                                     *    02140000
       **************************************************************    02150000
        01  CUSTOMER-LINE.                                               02160000
-           05  FILLER              PIC X(2)     VALUE SPACE.            02170000
-           05  CL-BRANCH-NUMBER    PIC X(2).                            02180000
-           05  FILLER              PIC X(4)     VALUE SPACE.            02190000
-           05  CL-SALESREP-NUMBER  PIC X(2).                            02200000
-           05  FILLER              PIC X(3)     VALUE SPACE.            02210000
-           05  CL-CUSTOMER-NUMBER  PIC 9(5).                            02220000
-           05  FILLER              PIC X(2)     VALUE SPACE.            02230000
-           05  CL-SALESREP-NAME    PIC X(10).                           02240008
-           05  FILLER              PIC X(2)     VALUE SPACE.            02250010
-           05  CL-CUSTOMER-NAME    PIC X(20).                           02260000
-           05  FILLER              PIC X(3)     VALUE SPACE.            02270000
-           05  CL-SALES-THIS-YTD   PIC ZZ,ZZ9.99-.                      02280000
-           05  FILLER              PIC X(4)     VALUE SPACE.            02290000
-           05  CL-SALES-LAST-YTD   PIC ZZ,ZZ9.99-.                      02300000
-           05  FILLER              PIC X(4)     VALUE SPACE.            02310000
-           05  CL-CHANGE-AMOUNT    PIC ZZ,ZZ9.99-.                      02320000
-           05  FILLER              PIC X(3)     VALUE SPACE.            02330000
-           05  CL-CHANGE-PERCENT   PIC ---9.9.                          02340003
-           05  CL-CHANGE-PERCENT-R REDEFINES CL-CHANGE-PERCENT          02350003
-                                   PIC X(6).                            02360003
-           05  FILLER              PIC X(47)    VALUE SPACE.            02370000
+           05  FILLER               PIC X(2)       VALUE SPACE.
+           05  CL-BRANCH-NUMBER     PIC X(2).
+           05  FILLER               PIC X(3)       VALUE SPACE.
+           05  CL-SALESREP-NUMBER   PIC X(2).
+           05  FILLER               PIC X(1)       VALUE SPACE.
+           05  CL-SALESREP-NAME     PIC X(10).
+           05  FILLER               PIC X(1)       VALUE SPACE.
+           05  CL-CUSTOMER-NUMBER   PIC X(5).
+           05  FILLER               PIC X(1)       VALUE SPACE.
+           05  CL-CUSTOMER-NAME     PIC X(20).
+           05  FILLER               PIC X(6)       VALUE SPACE.
+           05  CL-SALES-THIS-YTD    PIC ZZ,ZZ9.99-.
+           05  FILLER               PIC X(4)       VALUE SPACE.
+           05  CL-SALES-LAST-YTD    PIC ZZ,ZZ9.99-.
+           05  FILLER               PIC X(4)       VALUE SPACE.
+           05  CL-CHANGE-AMOUNT     PIC ZZ,ZZ9.99-.
+           05  FILLER               PIC X(2)       VALUE SPACE.
+           05  CL-CHANGE-PERCENT    PIC +++9.9.
+           05  CL-CHANGE-PERCENT-R  REDEFINES  CL-CHANGE-PERCENT
+                                    PIC X(6).
+           05  FILLER               PIC X(31)      VALUE SPACE.
                                                                         02380000
       **************************************************************    02390000
       * STORES THE BRANCH TOTAL LINE                               *    02400000
@@ -242,19 +242,19 @@
       * FOR THIS BRANCH AS WELL AS THE PERCENT DIFFERENCE          *    02420000
       * USED FOR OUTPUTTING                                        *    02430000
       **************************************************************    02440000
-       01  BRANCH-TOTAL-LINE.                                           02450000
-           05  FILLER                PIC X(28)    VALUE SPACE.          02460004
-           05  FILLER                PIC X(14)    VALUE "BRANCH TOTAL". 02470004
-           05  BTL-SALES-THIS-YTD    PIC $$$,$$9.99-.                   02480005
-           05  FILLER                PIC X(3)     VALUE SPACE.          02490004
-           05  BTL-SALES-LAST-YTD    PIC $$$,$$9.99-.                   02500005
-           05  FILLER                PIC X(3)     VALUE SPACE.          02510004
-           05  BTL-CHANGE-AMOUNT     PIC $$$,$$9.99-.                   02520006
-           05  FILLER                PIC X(3)     VALUE SPACE.          02530004
-           05  BTL-CHANGE-PERCENT    PIC +++9.9.                        02540004
-           05  BTL-CHANGE-PERCENT-R  REDEFINES BTL-CHANGE-PERCENT       02550004
-                                     PIC X(6).                          02560004
-           05  FILLER                PIC X(48)    VALUE " **".          02570004
+       01  BRANCH-TOTAL-LINE.                                           02450016
+           05  FILLER               PIC X(36)   VALUE SPACE.            02460016
+           05  FILLER               PIC X(16)   VALUE "  BRANCH TOTAL". 02470016
+           05  BTL-SALES-THIS-YTD   PIC $$$,$$9.99-.                    02480016
+           05  FILLER               PIC X(3)    VALUE SPACE.            02490016
+           05  BTL-SALES-LAST-YTD   PIC $$$,$$9.99-.                    02500016
+           05  FILLER               PIC X(3)    VALUE SPACE.            02510016
+           05  BTL-CHANGE-AMOUNT    PIC $$$,$$9.99-.                    02520016
+           05  FILLER               PIC X(2)    VALUE SPACE.            02530016
+           05  BTL-CHANGE-PERCENT   PIC +++9.9.                         02540016
+           05  BTL-CHANGE-PERCENT-R REDEFINES BTL-CHANGE-PERCENT        02550016
+                                    PIC X(6).                           02560016
+           05  FILLER               PIC X(31)   VALUE "**".             02570016
                                                                         02580000
       **************************************************************    02590000
       * STORES THE SALES REP TOTAL LINE                            *    02600000
@@ -262,38 +262,38 @@
       * FOR THIS REP AS WELL AS THE PERCENT DIFFERENCE             *    02620000
       * USED FOR OUTPUTTING                                        *    02630000
       **************************************************************    02640000
-       01  SALESREP-TOTAL-LINE.                                         02650000
-           05  FILLER               PIC X(28)    VALUE SPACE.           02660005
-           05  FILLER               PIC X(14)    VALUE "SALESREP TOTAL".02670005
-           05  STL-SALES-THIS-YTD   PIC $$$,$$9.99-.                    02680005
-           05  FILLER               PIC X(3)     VALUE SPACE.           02690005
-           05  STL-SALES-LAST-YTD   PIC $$$,$$9.99-.                    02700005
-           05  FILLER               PIC X(3)     VALUE SPACE.           02710005
-           05  STL-CHANGE-AMOUNT    PIC $$$,$$9.99-.                    02720006
-           05  FILLER               PIC X(3)     VALUE SPACE.           02730005
-           05  STL-CHANGE-PERCENT   PIC ZZ9.9-.                         02740005
-           05  STL-CHANGE-PERCENT-R REDEFINES STL-CHANGE-PERCENT        02750005
-                                    PIC X(6).                           02760005
-           05  FILLER               PIC X(48)    VALUE " *".            02770005
+       01  SALESREP-TOTAL-LINE.                                         02650016
+           05  FILLER               PIC X(36)   VALUE SPACE.            02660016
+           05  FILLER               PIC X(16)   VALUE "SALESREP TOTAL". 02670016
+           05  STL-SALES-THIS-YTD   PIC $$$,$$9.99-.                    02680016
+           05  FILLER               PIC X(3)    VALUE SPACE.            02690016
+           05  STL-SALES-LAST-YTD   PIC $$$,$$9.99-.                    02700016
+           05  FILLER               PIC X(3)    VALUE SPACE.            02710016
+           05  STL-CHANGE-AMOUNT    PIC $$$,$$9.99-.                    02720016
+           05  FILLER               PIC X(2)    VALUE SPACE.            02730016
+           05  STL-CHANGE-PERCENT   PIC +++9.9.                         02740016
+           05  STL-CHANGE-PERCENT-R REDEFINES STL-CHANGE-PERCENT        02750016
+                                    PIC X(6).                           02760016
+           05  FILLER               PIC X(31)   VALUE "*".              02770016
       **************************************************************    02780000
       * STORES THE SECOND GRAND TOTAL LINE                         *    02790000
       * HOLDS THE TOTAL SALES FOR THIS AND LAST YEAR-TO-DATE,      *    02800000
       * THE TOTAL DIFFERENCE IN SALES MADE BETWEEN THE TWO YEARS   *    02810000
       * AND THE PERCENTAGE DIFFERENCE - FOR OUTPUTTING             *    02820000
       **************************************************************    02830000
-       01  GRAND-TOTAL-LINE.                                            02840000
-           05  FILLER              PIC X(28)    VALUE SPACE.            02850000
-           05  FILLER              PIC X(12)    VALUE "GRAND TOTAL ".   02860000
-           05  GTL-SALES-THIS-YTD  PIC $,$$$,$$9.99-.                   02870006
-           05  FILLER              PIC X(1)     VALUE SPACE.            02880000
-           05  GTL-SALES-LAST-YTD  PIC $,$$$,$$9.99-.                   02890006
-           05  FILLER              PIC X        VALUE SPACE.            02900000
-           05  GTL-CHANGE-AMOUNT   PIC $,$$$,$$9.99-.                   02910006
-           05  FILLER              PIC X(3)     VALUE SPACE.            02920000
-           05  GTL-CHANGE-PERCENT  PIC ZZ9.9-.                          02930000
-           05  GTL-CHANGE-PERCENT-R REDEFINES GTL-CHANGE-PERCENT        02940007
-                                   PIC X(6).                            02950007
-           05  FILLER              PIC X(43)    VALUE " ***".           02960000
+       01  GRAND-TOTAL-LINE.                                            02840016
+           05  FILLER               PIC X(36)    VALUE SPACE.           02850016
+           05  FILLER               PIC X(14)    VALUE "   GRAND TOTAL".02860016
+           05  GTL-SALES-THIS-YTD   PIC $,$$$,$$9.99-.                  02870016
+           05  FILLER               PIC X(1)     VALUE SPACE.           02880016
+           05  GTL-SALES-LAST-YTD   PIC $,$$$,$$9.99-.                  02890016
+           05  FILLER               PIC X(1)     VALUE SPACE.           02900016
+           05  GTL-CHANGE-AMOUNT    PIC $,$$$,$$9.99-.                  02910016
+           05  FILLER               PIC X(2)     VALUE SPACE.           02920016
+           05  GTL-CHANGE-PERCENT   PIC +++9.9.                         02930016
+           05  GTL-CHANGE-PERCENT-R REDEFINES GTL-CHANGE-PERCENT        02940016
+                                    PIC X(6).                           02950016
+           05  FILLER               PIC X(31)    VALUE "***".           02960016
                                                                         02970000
        PROCEDURE DIVISION.                                              02980000
                                                                         02990000
