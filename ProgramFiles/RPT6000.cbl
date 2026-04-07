@@ -70,7 +70,7 @@
        01 SALESREP-TABLE.                    
            05 SALESREP-GROUP OCCURS 100 TIMES                           00610007
                              INDEXED BY SRT-INDEX.                      00620007
-               10 SALESREP-NUMBER   PIC 9(2).                           00630007
+               10 SALESREP-NUMBER   PIC 99.                             00630007
                10 SALESREP-NAME     PIC X(10).   
                                       
       **************************************************************    00650000
@@ -78,7 +78,7 @@
       **************************************************************    00670000
        01  SWITCHES.   
            05  SALESREP-EOF-SWITCH     PIC X    VALUE "N".              00690000
-               88  SALESREP-EOF                 VALUE "Y".                                                   00680000
+               88  SALESREP-EOF                 VALUE "Y".                                           
            05  CUSTMAST-EOF-SWITCH     PIC X    VALUE "N".              00690000
                88  CUSTMAST-EOF                 VALUE "Y".              00700000
            05  FIRST-RECORD-SWITCH     PIC X    VALUE "Y".              00710000
@@ -315,22 +315,24 @@
       * READING AND WRITING TO AND FROM THEM                       *    03020000
       **************************************************************    03030000
        000-PREPARE-SALES-REPORT.                                        03040000
-           INITIALIZE SALESREP-TABLE.                                                          03050000
+           INITIALIZE SALESREP-TABLE.  
+                                                          
            OPEN INPUT  CUSTMAST
-                INPUT INPUT-SALESREP                                         03060000
+                INPUT INPUT-SALESREP                                    
                 OUTPUT ORPT6000. 
                                                                         03080000
            *> GRABS THE DATE AND TIME INFORMATION FOR                   03090000
            *> THE HEADER LINES                                          03100000
-           PERFORM 100-FORMAT-REPORT-HEADING.                           03110000
-                                               
-           PERFORM 200-LOAD-SALESREP-TABLE.
+           PERFORM 100-FORMAT-REPORT-HEADING.                           0311000        
                                                                         03120000
            *> GRAB AND PRINT CUSTOMER SALES TO THE OUPUT FILE UNTIL     03130000
            *> THE END OF THE INPUT FILE                                 03140000
            PERFORM 200-PREPARE-SALES-LINES                              03150000
                UNTIL CUSTMAST-EOF-SWITCH = "Y".                         03160000
-                                                                        03170000
+           
+           PERFORM 205-LOAD-SALESREP-TABLE.
+                      
+                                                      
            *> OUTPUT THE GRAND TOTALS TO THE OUTPUT FILE                03180000
            PERFORM 300-PRINT-GRAND-TOTALS.                              03190000
                                                                         03200000
@@ -399,7 +401,29 @@
                    MOVE CM-SALESREP-NUMBER TO OLD-SALESREP-NUMBER       03830000
                WHEN OTHER                                               03840000
                    PERFORM 220-PRINT-CUSTOMER-LINE                      03850000
-           END-EVALUATE.                                                03860000
+           END-EVALUATE.           
+                                           
+      **************************************************************    03880000
+      * READS A LINE OF THE INPUT FILE AND IF ITS THE LAST ONE     *    03890000
+      * UPDATES THE CUSTOMER-EOF-SWITCH (END-OF-FILE)              *    03900000
+      ************************************************************** 
+       205-LOAD-SALESREP-TABLE. 
+           PERFORM WITH TEST AFTER 
+                VARYING SRT-INDEX FROM 1 BY 1 
+                UNTIL SALESREP-EOF OR SRT-INDEX = 100
+                PERFORM 110-READ-SALESREP-TABLE-RECORD
+                IF NOT SALESREP-EOF 
+                     MOVE SM-SALESREP-NUMBER 
+                          TO SALESREP-NUMBER (SRT-INDEX)
+                     MOVE SM-SALESREP-NAME TO SALESREP-NAME (SRT-INDEX)
+                END-IF
+           END-PERFORM.
+       
+       110-READ-SALESREP-TABLE-RECORD.
+           READ INPUT-SALESREP RECORD INTO SALESREP-MASTER-RECORD 
+                AT END 
+                    SET SALESREP-EOF-SWITCH TO TRUE.
+       
                                                                         03870000
       **************************************************************    03880000
       * READS A LINE OF THE INPUT FILE AND IF ITS THE LAST ONE     *    03890000
