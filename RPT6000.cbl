@@ -14,13 +14,23 @@
        INPUT-OUTPUT SECTION.                                            00140000
                                                                         00150000
        FILE-CONTROL.                                                    00160000
-           SELECT CUSTMAST ASSIGN TO CUSTMAST.                          00170000
+           SELECT CUSTMAST ASSIGN TO CUSTMAST.  
+           SELECT INPUT-SALESREP ASSIGN TO SALESREP.                          00170000
            SELECT ORPT6000 ASSIGN TO RPT6000.                           00180001
                                                                         00190000
        DATA DIVISION.                                                   00200000
                                                                         00210000
-       FILE SECTION.                                                    00220000
-                                                                        00230000
+       FILE SECTION. 
+                                                         
+       FD  INPUT-SALESREP                                               00270000
+           RECORDING MODE IS F                                          00280000
+           LABEL RECORDS ARE STANDARD                                   00290000
+           RECORD CONTAINS 130 CHARACTERS                               00300000
+           BLOCK CONTAINS 130 CHARACTERS.                               00310000
+       01  SALESREP-MASTER-RECORD.                                      00320000
+           05 SM-SALESREP-NUMBER       PIC 9(2).
+           05 SM-SALESREP-NAME         PIC 9(2). 
+           05  FILLER                  PIC X(118).                       00230000
       **************************************************************    00240000
       * INPUT FILE                                                 *    00250000
       **************************************************************    00260000
@@ -304,7 +314,8 @@
        000-PREPARE-SALES-REPORT.                                        03040000
                                                                         03050000
            OPEN INPUT  CUSTMAST                                         03060000
-                OUTPUT ORPT6000.                                        03070001
+                OUTPUT ORPT6000. 
+                                                   
                                                                         03080000
            *> GRABS THE DATE AND TIME INFORMATION FOR                   03090000
            *> THE HEADER LINES                                          03100000
