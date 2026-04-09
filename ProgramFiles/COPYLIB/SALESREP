@@ -1,3 +1,4 @@
+       COPY SALESREP.
        01  SALESREP-MASTER-RECORD.                                      
                  05 SM-SALESREP-NUMBER       PIC 9(2).
                  05 SM-SALESREP-NAME         PIC 9(10).
