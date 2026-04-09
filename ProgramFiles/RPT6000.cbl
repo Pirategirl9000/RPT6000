@@ -22,7 +22,7 @@
                                                                         00210000
        FILE SECTION.
       **************************************************************    00240000
-      * INPUT FILEs                                                *    00250000
+      * INPUT FILES                                                *    00250000
       **************************************************************
 
        FD  CUSTMAST                                                     00270000
@@ -320,6 +320,8 @@
            OPEN INPUT  CUSTMAST
                 INPUT INPUT-SALESREP
                 OUTPUT ORPT6000.
+
+           PERFORM 205-LOAD-SALESREP-TABLE.
                                                                         03080000
            *> GRABS THE DATE AND TIME INFORMATION FOR                   03090000
            *> THE HEADER LINES                                          03100000
@@ -330,7 +332,7 @@
            PERFORM 200-PREPARE-SALES-LINES                              03150000
                UNTIL CUSTMAST-EOF-SWITCH = "Y".                         03160000
 
-           PERFORM 205-LOAD-SALESREP-TABLE.
+           
 
 
            *> OUTPUT THE GRAND TOTALS TO THE OUTPUT FILE                03180000
@@ -467,7 +469,7 @@
                WHEN OTHER                                               04300000
                    MOVE SPACES TO CL-BRANCH-NUMBER                      04310000
                    MOVE SPACES TO CL-SALESREP-NUMBER                    04320000
-                   MOVE SPACES TO CL-SALESREP-NAME 
+                   MOVE SPACES TO CL-SALESREP-NAME
            END-EVALUATE.                                                04330000
                                                                         04340000
            *> MOVE THE DATA PULLED FROM THE INPUT FILE INTO THE         04350000
