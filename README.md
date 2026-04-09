@@ -86,6 +86,7 @@ This version introduces more advanced COBOL concepts such as:
 ---
 
 ## Screenshot
+![Image of output](assets/output.png)
 
 
 
@@ -103,7 +104,7 @@ This version introduces more advanced COBOL concepts such as:
 
 - **GitHub**: [Violet French](https://github.com/Pirategirl9000)
   
-- **Email**: []
+- **Email**: [BraedynFrench@gmail.com]
 
 
 ### File Definitions
