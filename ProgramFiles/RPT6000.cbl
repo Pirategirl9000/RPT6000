@@ -455,18 +455,19 @@
                WHEN FIRST-RECORD                                        04180000
                    MOVE CM-BRANCH-NUMBER TO CL-BRANCH-NUMBER            04190000
                    MOVE CM-SALESREP-NUMBER TO CL-SALESREP-NUMBER        04200000
-                   PERFORM 223-MOVE-SALESREP-NUMBER                     04210008
+                   PERFORM 223-MOVE-SALESREP-NAME                       04210008
                WHEN CM-BRANCH-NUMBER > OLD-BRANCH-NUMBER                04220000
                    MOVE CM-BRANCH-NUMBER TO CL-BRANCH-NUMBER            04230000
                    MOVE CM-SALESREP-NUMBER TO CL-SALESREP-NUMBER        04240000
-                   PERFORM 223-MOVE-SALESREP-NUMBER                     04250008
+                   PERFORM 223-MOVE-SALESREP-NAME                       04250008
                WHEN NOT (CM-SALESREP-NUMBER = OLD-SALESREP-NUMBER)      04260000
                    MOVE CM-SALESREP-NUMBER TO CL-SALESREP-NUMBER        04270000
-                   PERFORM 223-MOVE-SALESREP-NUMBER                     04280008
+                   PERFORM 223-MOVE-SALESREP-NAME                       04280008
                    MOVE SPACES TO CL-BRANCH-NUMBER                      04290000
                WHEN OTHER                                               04300000
                    MOVE SPACES TO CL-BRANCH-NUMBER                      04310000
                    MOVE SPACES TO CL-SALESREP-NUMBER                    04320000
+                   MOVE SPACES TO CL-SALESREP-NAME 
            END-EVALUATE.                                                04330000
                                                                         04340000
            *> MOVE THE DATA PULLED FROM THE INPUT FILE INTO THE         04350000
@@ -506,7 +507,7 @@
       * TODO                                                       *    04690008
       *                                                            *    04700008
       **************************************************************    04710008
-       223-MOVE-SALESREP-NUMBER.                                        04720010
+       223-MOVE-SALESREP-NAME.                                          04720010
            SET SRT-INDEX TO 1.                                          04730010
            SEARCH SALESREP-GROUP                                        04740010
                AT END                                                   04750010
