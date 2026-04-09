@@ -12,7 +12,7 @@
 * [Features](#features)
 * [Key Concepts](#key-concepts-implemented)
 * [Workflow](#program-workflow)
-* [screenshot](#screenshot)
+* [Output](#output)
 * [Authors](#authors)
 ---
 
@@ -85,7 +85,7 @@ This version introduces more advanced COBOL concepts such as:
 
 ---
 
-## Screenshot
+## Output
 ![Image of output](assets/output.png)
 
 
