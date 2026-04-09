@@ -1,3 +1,4 @@
+       COPY CUSTMAST.
        01  CUSTOMER-MASTER-RECORD.                                      
                  05  CM-BRANCH-NUMBER        PIC 9(2).                       
                  05  CM-SALESREP-NUMBER      PIC 9(2).                        
