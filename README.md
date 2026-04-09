@@ -87,14 +87,23 @@ This version introduces more advanced COBOL concepts such as:
 
 ## Screenshot
 
-*(Add images like this once uploaded)*
+
 
 ---
 
 ## Authors
-[Violet French](https://github.com/Pirategirl9000)
-[Hayden Schmidt](https://github.com/Pirategirl9000)
+  
+**Hayden Schmidt**
 
+- **GitHub**: [Haschm05](https://github.com/Haschm05)
+  
+- **Email**: [haschm05@wsc.edu]
+
+**Violet French**
+
+- **GitHub**: [Violet French](https://github.com/Pirategirl9000)
+  
+- **Email**: []
 
 
 ### File Definitions
