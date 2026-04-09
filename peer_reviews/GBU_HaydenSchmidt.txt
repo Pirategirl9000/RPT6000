@@ -1,0 +1,18 @@
+Name: Hayden Schmidt
+Date: 04/09/2026
+Project: RPT6000
+Github URL: https://github.com/Pirategirl9000/RPT6000
+
+GBU:
+Good news, the assignment went decently well and I have begun 
+working on the final portfolio. Bad news, I didnt do as much of 
+the intricate work as I could have, I still did my best to 
+understand how everything works though. The ugly news was the 
+two hour long output bug that Violet dealt with (Thank you Violet).
+
+Peer-reflection for Violet:
+Violet was an amazing partner, I know I was not quite as good as I 
+could have been, and for that I apologize. Violet seems to have an 
+intuitive understanding of COBOL and was patient with me while I was 
+coding. She also tends to go above and beyond in just about every 
+conceivable way.
